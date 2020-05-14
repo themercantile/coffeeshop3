@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Entry form in bootstrap Name, Drink Type, Milk, Sugar, Extras -->
+<form action="{{ url_for('order') }}" method="POST">
+  <div class="form-row">
+    <div class="col-sm-4">
+      <input type="text" class="form-control" placeholder="Enter your name" name="nameInput" required>
+    </div>
+    <div class="col-sm-4">
+      <input type="text" class="form-control" placeholder="Email address" name="email" required>
+    </div>
+  </div>
+  
+  <div class="form-row">
+    <!--Drink Type-->
+    <!--In the label, the 'for' corresponds with the 'ID' in select -->
+    <div class="col">
+      <label for="drinkType"><b>Beverage</b></label>
+      <select class="custom-select" id="drinkType" name="drinkType">
+        <optgroup label="Hot Drinks">
+          <option value="espresso320">Espresso</option>
+          <option value="shortmac360">Short Mac</option>
+          <option value="cappucino400">Cappucino</option>
+          <option value="flatwhite400">Flat White</option>
+          <option value="latte400">Latte</option>
+          <option value="longblack400">Long Black</option>
+          <option value="affogato440">Affogato</option>
+          <option value="longmac440">Long Mac</option>
+          <option value="mocha440">Mocha</option>
+          <option value="hotchocolate440">Hot Chocolate</option>
+          <option value="chailatte440">Chai Latte</option>
+          <option value="vienna440">Vienna</option>
+          <option value="turmeric450">Turmeric</option>
+          <option value="matchalatte450">Matcha Latte</option>
+        </optgroup>
+        <optgroup label="Iced Drinks - Include whipped cream & iced cream">
+          <option value="icedlatte570">Iced Latte</option>
+          <option value="icedblackcoffee540">Iced Black Coffee</option>
+          <option value="icedcoffee650">Iced Coffee</option>
+          <option value="icedmocha650">Iced Mocha</option>
+          <option value="icedchoc650">Iced Choc</option>
+          <option value="icedchai650">Iced Chai</option>
+        </optgroup>
+      </select>      
+    </div>
+    <!--Milk Type-->
+    <div class="col">
+      <label for="milkType"><b>Milk</b></label>
+      <select class="custom-select" id="milkType" name="milkType">
+        <option selected>None</option>
+        <option value="fullcreammilk">Full Cream</option>
+        <option value="hilomilk">Hi-Lo</option>
+        <option value="skimmilk">Skim Milk</option>
+        <option value="soymilk60">Soy Milk</option>
+        <option value="almondmilk60">Almond Milk</option>
+      </select>
+    </div>
+    <!--Drink Size-->
+    <div class="col">
+      <label for="drinkSize"><b>Size</b></label>
+      <select class="custom-select" id="drinkSize" name="drinkSize">
+        <option value="small" selected>Small</option>
+        <option value="medium">Medium</option>
+        <option value="large">Large</option>
+      </select>
+    </div>
+    <!--Sugar-->
+    <div class="col">
+      <label for="sugarAmt"><b>Sugar</b></label>
+      <select class="custom-select" id="sugarAmt" name="sugarAmt">
+        <option value="sugarNone" selected>No Sugar</option>
+        <option value="sugarOne">One Sugar</option>
+        <option value="sugarTwo">Two Sugars</option>
+        <option value="sugarThree">Three Sugars</option>
+        <option value="sugarFour">Four Sugars</option>
+      </select>
+    </div>
+    <!--Extras-->
+    <div class="col">
+      <label for="extras"><b>Extras</b></label>
+      <select class="custom-select" id="extras" name="extras">
+        <option value="none" selected>None</option>
+        <option value="syrup">Syrup</option>
+        <option value="xshot1">Extra Shot x 1</option>
+        <option value="xshot2">Extra Shot x 2</option>
+        <option value="decaf">Decaf</option>        
+      </select>
+    </div>
+  </div>
+  <hr>
+  <!--Buttons-->
+  <div class="form-row">
+      <a class="btn btn-primary" href="{{ url_for('order') }}">Add Another</a>
+      <!-- Adding another should update the list of drinks below the ordering section. Form should be a table. -->
+      <input class="btn btn-primary" type="submit" value="Submit Order">
+  </div>
+</form>
+{% block order %}
+{% endblock %}
+
+{% endblock %}
