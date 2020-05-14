@@ -3,13 +3,17 @@
 # The idea is to allow people to make orders in the office. 
 # 
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 from coffeecalc import MyCoffee
 import pymongo
+import os
+
+# basedir = os.path.abspath(os.path.dirname(__file__))
+# SECRET_KEY = os.environ.get("SECRET_KEY") or "I_<3_Rusty_26-04-2020"
 
 app = Flask(__name__)
 
-#
+app.secret_key = "secret covfefe key"
 
 @app.route("/")
 @app.route("/index")
@@ -18,7 +22,9 @@ def index():
 
 @app.route("/finalise", methods=["GET", "POST"])
 def finalise():
-  return "Hello"
+  myTupleList=session['orderTuple']
+  print(myTupleList)
+  return render_template("finalise.html", coffeeTuple=myTupleList)
 
 @app.route("/order", methods=["GET", "POST"])
 def order():
@@ -39,11 +45,11 @@ def order():
     toList.insert(0, nameInput)
     myTuple = tuple(toList)
     myTupleList.append(myTuple)
+    session['orderTuple'] = myTupleList
     return render_template("coffeelist.html", coffeeTuple = myTupleList)    
   else:
     myTupleList = []
     return render_template("order.html")
-
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th>Order Number</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Beverage</th>
+      <th>Milk</th>
+      <th>Sugar</th>
+      <th>Extras</th>
+      <th>Size</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for a_tuple in coffeeTuple %}
+    <tr>
+      <td>{{ loop.index }}</td> <!--The counter variable inside the loop is called loop.index in jinja2.-->
+      <td>{{ a_tuple[0] }}</td>
+      <td>{{ a_tuple[1] }}</td>
+      <td>{{ a_tuple[2] }}</td>
+      <td>{{ a_tuple[3] }}</td>
+      <td>{{ a_tuple[4] }}</td>
+      <td>{{ a_tuple[5] }}</td>
+      <td>{{ a_tuple[6] }}</td>
+      <td>{{ a_tuple[7] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
