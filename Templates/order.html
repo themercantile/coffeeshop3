@@ -5,10 +5,12 @@
 <form action="{{ url_for('order') }}" method="POST">
   <div class="form-row">
     <div class="col-sm-4">
-      <input type="text" class="form-control" placeholder="Enter your name" name="nameInput" required>
+      <label for="nameInput"><b>Name</b></label>
+      <input type="text" class="form-control" placeholder="Enter your name" name="nameInput" id="nameInput" required>
     </div>
     <div class="col-sm-4">
-      <input type="text" class="form-control" placeholder="Email address" name="email" required>
+      <label for="email"><b>Email</b></label>
+      <input type="text" class="form-control" placeholder="Email address" name="email" id="email" required>
     </div>
   </div>
   
@@ -48,7 +50,7 @@
     <div class="col">
       <label for="milkType"><b>Milk</b></label>
       <select class="custom-select" id="milkType" name="milkType">
-        <option selected>None</option>
+        <option value="none" selected>None</option>
         <option value="fullcreammilk">Full Cream</option>
         <option value="hilomilk">Hi-Lo</option>
         <option value="skimmilk">Skim Milk</option>
@@ -91,10 +93,13 @@
   <hr>
   <!--Buttons-->
   <div class="form-row">
-      <a class="btn btn-primary" href="{{ url_for('order') }}">Add Another</a>
+      <!-- <a class="btn btn-primary" href="{{ url_for('order') }}">Add Another</a> -->
+      <input class="btn btn-primary" type="submit" value="Add a drink" name="addDrink">
       <!-- Adding another should update the list of drinks below the ordering section. Form should be a table. -->
-      <input class="btn btn-primary" type="submit" value="Submit Order">
+      <!-- <input class="btn btn-primary" type="submit" value="Finalise Order" name="finalise"> -->
+      <!-- Finalising the order should display the entire order on a new page with a total cost  -->
   </div>
+  <br>
 </form>
 {% block order %}
 {% endblock %}

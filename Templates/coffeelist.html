@@ -11,6 +11,7 @@
       <th>Milk</th>
       <th>Sugar</th>
       <th>Extras</th>
+      <th>Size</th>
       <th>Price</th>
     </tr>
   </thead>
@@ -25,9 +26,15 @@
       <td>{{ a_tuple[4] }}</td>
       <td>{{ a_tuple[5] }}</td>
       <td>{{ a_tuple[6] }}</td>
+      <td>{{ a_tuple[7] }}</td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
-
+<form action="{{ url_for('finalise') }}" method="POST">
+  <div class="form-row">
+    <input class="btn btn-primary" type="submit" value="Finalise Order" name="finalise">
+    <!-- Finalising the order should display the entire order on a new page with a total cost  -->
+  </div>
+</form>
 {% endblock %}

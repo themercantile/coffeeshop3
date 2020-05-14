@@ -25,7 +25,7 @@ coffeeData = {
 }
 
 milkData = {
-    "none": {"name": "None", "price": 0},
+    "none": {"name": "No Milk", "price": 0},
     "fullcreammilk": {"name": "Full Cream", "price": 0},
     "hilomilk": {"name": "Hi-Lo", "price": 0},
     "skimmilk": {"name": "Skim Milk", "price": 0},
@@ -34,7 +34,7 @@ milkData = {
 }
 
 extrasData = {
-    "none": {"name": "None", "price": 0},
+    "none": {"name": "No Extras", "price": 0},
     "syrup": {"name": "Syrup", "price": 0.6},
     "xshot1": {"name": "Extra Shot x 1", "price":  0.6},
     "xshot2": {"name": "Extra Shot x 2", "price":  1.2},
@@ -57,7 +57,7 @@ sizeData = {
 }
 
 class MyCoffee():
-  def __init__(self, myCoffee, myMilk, myExtras, mySugar, mySize):
+  def __init__(self, myCoffee, myMilk,  mySugar, myExtras, mySize):
     self.myCoffee = coffeeData[myCoffee]["name"]
     self.myMilk = milkData[myMilk]["name"]
     self.myExtras = extrasData[myExtras]["name"]
@@ -67,4 +67,4 @@ class MyCoffee():
         extrasData[myExtras]["price"] + sizeData[mySize]["price"]
 
   def returnData(self):
-    return(self.myCoffee, self.myMilk, self.myExtras, self.mySugar, self.mySize, round(self.myCost, 2))
+    return(self.myCoffee, self.myMilk, self.mySugar, self.myExtras, self.mySize, round(self.myCost, 2))
