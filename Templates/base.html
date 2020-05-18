@@ -15,9 +15,14 @@
   <body class = "container-fluid">
     <div>
       <!--Header Here-->
-      <nav>
-        <a href="{{ url_for('index') }}">Home</a>
-        <a href="{{ url_for('order') }}">Order</a>
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('index') }}"><img src="/static/images/rbf-1.png" height="100" width="106"></a>
+        <!-- <a href="{{ url_for('order') }}">Order</a> -->
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('order') }}"><h2>Order</h2><span class="sr-only">(current)</span></a>
+          </li>          
+        </ul>
       </nav>
     </div>
     <hr>
