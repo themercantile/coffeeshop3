@@ -9,10 +9,7 @@ import pymongo
 
 #connecting to my mongodb atlas db
 '''
-myClient = pymongo.MongoClient("mongodb+srv://numbat:dfjQUGz09AFtm5AY@cluster0-su57x.mongodb.net/test?retryWrites=true&w=majority",
-                             connectTimeoutMS=30000, socketTimeoutMS=None, socketKeepAlive=True, connect=False, maxPoolsize=1)
 
-password is myNDIScoffeeapp ndiscoffee@gmail.com                      
 '''
 myClient = pymongo.MongoClient("mongodb://localhost:27017/")
 
